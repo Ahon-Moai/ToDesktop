@@ -5,8 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="./output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  <link rel="stylesheet" href="style.css">
   </head>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <!--Navbar-->
+    <nav class="flex p-3 items-center justify-between bg-white">
+      <a id="brand" class="flex items-center gap-2" href="">
+        <img
+          class="object-cover max-h-12 max-w-12"
+          src="./assets/asset 0.png"
+          alt=""
+        />
+        <span class="font-medium text-lg font-display">ToDesktop</span>
+      </a>
+      <!---->
+      <div id="nav-menu" class="hidden font-display lg:flex gap-12">
+        <a href="#" class="font-medium hover:text-primary">Pricing</a>
+        <a href="#" class="font-medium hover:text-primary">Docs</a>
+        <a href="#" class="font-medium hover:text-primary">Changelog</a>
+        <a href="#" class="font-medium hover:text-primary">Blogs</a>
+        <a href="#" class="font-medium hover:text-primary">Login</a>
+      </div>
+      <button
+        class="hidden font-medium font-display lg:flex items-center gap-2 px-6 py-2 rounded-lg hover:border-gray-600 border border-gray-400"
+      >
+        <img src="./assets/asset 1.svg" alt="" />
+        Electron Developers
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+      <button class="p-2 lg:hidden" onclick="handleMenu()">
+        <i class="fa-solid fa-bars text-gray-600"></i>
+      </button>
+
+      <div
+        id="nav-dialog"
+        class="hidden fixed z-10 md:hidden bg-white inset-0 p-3"
+      >
+        <div id="nav-bar" class="flex justify-between">
+          <a href="#" id="brand" class="flex gap-2 items-center">
+            <img
+              class="object-cover max-w-12 max-h-12"
+              src="./assets/asset 0.png"
+              alt="Logo"
+            />
+            <span class="text-lg font-medium font-display">ToDesktop</span>
+          </a>
+          <button class="p-2 md:hidden" onclick="handleMenu()">
+            <i class="fa-solid fa-xmark text-gray-600"></i>
+          </button>
+        </div>
+        <div class="mt-6">
+          <a
+            href="#"
+            class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg"
+            >Pricing</a
+          >
+          <a
+            href="#"
+            class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg"
+            >Docs</a
+          >
+          <a
+            href="#"
+            class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg"
+            >Changelog</a
+          >
+          <a
+            href="#"
+            class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg"
+            >Blogs</a
+          >
+          <a
+            href="#"
+            class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg"
+            >Login</a
+          >
+        </div>
+        <div class="h-[1px] bg-gray-300"></div>
+        <button
+          class="mt-6 w-full flex gap-2 items-center px-6 py-4 rounded-lg hover:bg-gray-50"
+        >
+          <img src="./assets/asset 1.svg" alt="" />
+          <span>Electron Developers</span>
+        </button>
+      </div>
+    </nav>
+    <!--Main-->
+    <main class="">
+      <!--Hero-->
+      <div
+        class="min-h-screen bg-gradient-to-b from-purple-50 via-orange-50 to-transparent"
+        id="hero"
+      >
+        <div
+          id="hero-container"
+          class="max-w-4xl mx-auto pt-6 px-6 pb-32 flex flex-col sm:items-center sm:text-center sm:max-w-2xl"
+        >
+          <div
+            id="version-text"
+            class="flex items-center my-6 gap-2 border border-yellow-300 bg-yellow-50 rounded-lg px-3 py-1 w-fit shadow-md hover:shadow-lg hover:-translate-y-1 transition hover:cursor-pointer group"
+          >
+            <div
+              class="w-2 h-2 bg-yellow-400 rounded-full border border-yellow-600"
+            ></div>
+            <p class="font-display font-medium text-yellow-600">
+              v0.21.1:
+              <span class="text-yellow-800">Find-in-page bug fixes</span>
+            </p>
+            <i
+              class="fa-solid fa-arrow-right text-yellow-600 group-hover:translate-x-1 transition duration-300"
+            ></i>
+          </div>
+          <div id="hero-features" class="hidden sm:flex gap-8 my-6">
+            <div class="flex justify-center gap-2 items-center text-gray-500">
+              <i class="fa-regular fa-file-code text-sm"></i>
+              <p>Code Optional</p>
+            </div>
+            <div class="flex justify-center gap-2 items-center text-gray-500">
+              <i class="fa-solid fa-hand-back-fist"></i>
+              <p>Drag & drop builder</p>
+            </div>
+            <div class="flex justify-center gap-2 items-center text-gray-500">
+              <i class="fa-solid fa-laptop"></i>
+              <p>Windows, Mac, Linux</p>
+            </div>
+          </div>
+          <h1
+            class="text-4xl font-body font-semibold leading-snug mt-4 sm:text-6xl"
+          >
+            Web app to desktop app in minutes
+          </h1>
+          <p class="text-xl mt-4 sm:text-2xl sm:mt-8 text-gray-800">
+            Take your web app codebase and transform it into a cross platform
+            desktop app with native functionality.
+          </p>
+          <div
+            id="buttons-container"
+            class="mt-12 flex gap-4 flex-col sm:flex-row"
+          >
+            <button
+              class="px-8 py-3 font-semibold rounded-lg text-white bg-[#3238f2] shadow-sm hover:bg-opacity-90"
+            >
+              Download now
+            </button>
+            <button
+              class="px-8 py-3 font-semibold rounded-lg bg-white border border-gray-400 hover:border-gray-800"
+            >
+              Read Docs
+            </button>
+          </div>
+          <div id="btn-container"><button></button><button></button></div>
+        </div>
+        
+      </main>
+      <section class="flex flex-col   gap-4">
+        <h1 class="pl-5 text-5xl font-body font-medium">How it works</h1>
+        <div id="box" class="mr-5 ml-5 flex lg:w:1/2 flex-col    sm:flex-row  px-6 py-2 border border-gray-300 rounded-lg">
+          <div id="left" class="">
+            <p class="text-yellow-600 mt-7 w-fit rounded-md bg-yellow-100 border border-yellow-300 px-2 py-1">Step 1</p>
+          <h1 class="text-3xl font-medium font-display mt-4 w-full ">Bootstrap straight from your web app</h1>
+      
+          <p class="text-gray-500 mt-5 w-1/2 sm:text-xl ">Copy and paste your web app url into ToDesktop. Customise your app design, app icon and window frame UI with no code.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature One</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Two</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Three</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Four</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Five</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Six</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Seven</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Eight</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+  <div class="p-6 border border-gray-300 rounded-lg">
+    <h3 class="text-lg font-semibold">Feature Nine</h3>
+    <p class="text-gray-500 mt-2">Short description about this feature.</p>
+  </div>
+
+</div>  
+        </div>
+      <div id="right" class="">
+         <img class="mt-6" src="./assets/asset 66.svg" alt="">
+      </div>
+        </div>
+          <div id="box" class="mr-5 ml-5 px-6 py-2 border border-gray-300 rounded-lg">
+          <p class="text-yellow-600 mt-7 w-fit rounded-md bg-yellow-100 border border-yellow-300 px-2 py-1">Step 1</p>
+          <h1 class="text-3xl font-medium font-display mt-4 w-full ">Bootstrap straight from your web app</h1>
+      
+          <p class="text-gray-500 mt-5 ">Copy and paste your web app url into ToDesktop. Customise your app design, app icon and window frame UI with no code.</p>
+       <img class="mt-6" src="./assets/asset 66.svg" alt="">
+        </div>
+          <div id="box" class="mr-5 ml-5 px-6 py-2 border border-gray-300 rounded-lg">
+          <p class="text-yellow-600 mt-7 w-fit rounded-md bg-yellow-100 border border-yellow-300 px-2 py-1">Step 1</p>
+          <h1 class="text-3xl font-medium font-display mt-4 w-full ">Bootstrap straight from your web app</h1>
+      
+          <p class="text-gray-500 mt-5 ">Copy and paste your web app url into ToDesktop. Customise your app design, app icon and window frame UI with no code.</p>
+       <img class="mt-6" src="./assets/asset 66.svg" alt="">
+        </div>
+
+      </section>
   </body>
+  <script src="./script.js"></script>
 </html>
